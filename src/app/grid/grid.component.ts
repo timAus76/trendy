@@ -36,6 +36,13 @@ export class GridComponent implements OnInit {
     })
   }
 
+  setCurrentItem(item: Product) {
+    this.grid.patchState((state) => {
+      return {currentItem: item}
+    });
+    console.log(item);
+  }
+
   changeView() {
     this.grid.patchState((state) => {
       return {viewIndex: state.viewIndex + 1 > 1 ? 0 : 1}
