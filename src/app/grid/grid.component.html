@@ -1,1 +1,24 @@
-<p>grid works!</p>
+<div>
+  <button class="btn view-button" (click)="changeView()">
+    <img
+      src="/assets/images/view-logo.svg"
+      alt="view">
+    <span class="view-text">{{getViewName()}}</span>
+  </button>
+</div>
+
+<div class="trendy-grid">
+
+  <ng-container *ngIf="isGrid()">
+  <div *ngFor="let item of (gridItems$ | async)">
+    {{item.title}}
+  </div>
+  </ng-container>
+
+  <ng-container *ngIf="isList()">
+    <div *ngFor="let item of (gridItems$ | async)">
+      {{item.productId}}
+    </div>
+  </ng-container>
+
+</div>

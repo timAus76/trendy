@@ -4,9 +4,9 @@ export interface Product {
   // Expected value: http://...
   imagePath: string;
   // Expected value: 4.9
-  rating: number;
+  rating: string;
   // Expected value: 99
-  percentage: number;
+  percentage: string;
   // Expected value: 1.2K
   tags: string;
   // Expected value: Xiaomi Wifi Extender
@@ -16,5 +16,5 @@ export interface Product {
   // Expected value: true
   ePacket: boolean;
   // Expected value: new Date()
-  createdAt: Date;
+  createdAt: string;
 }
