@@ -1,3 +1,4 @@
+@import './colors';
 @font-face {
   font-family: "trendy";
   src: url("../fonts/icons/trendy-icons.eot");
@@ -8,6 +9,13 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "avenir";
+  src: url("../fonts/AvenirLTStd-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 [class*="icon-"] {
   line-height: 100% !important;
   transition: all 0.15s ease-in;
@@ -48,4 +56,29 @@
 }
 .icon-eye:before {
   content: "\0049";
+}
+
+button {
+  background-color: $light-grey;
+  cursor: pointer;
+  border-radius: 10px;
+  height: 42px;
+  transition: background-color .15s ease-in;
+  padding: 10px 14px;
+  outline: none;
+  box-shadow: none;
+  text-transform: none;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+button:hover {
+  color: #212529;
+  background-color: darken($light-grey, 10%);
+  text-decoration: none;
+}
+
+html {
+  background-color:$background-grey;
 }

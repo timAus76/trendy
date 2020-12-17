@@ -1,0 +1,74 @@
+<div>
+  <button class="btn view-button" (click)="changeView()">
+    <img
+      src="/assets/images/view-logo.svg"
+      alt="view">
+    <span class="view-text">{{getViewName() | titlecase  }}</span>
+  </button>
+</div>
+
+<div class="trendy-grid">
+
+  <ng-container *ngIf="isGrid()">
+    <div class="row between-xs container">
+      <div *ngFor="let item of (gridItems$ | async)" class="col-xs-10 col-sm-5 col-md-4 col-lg-3">
+        <div class="card">
+           <div class="image">
+            <img src="{{item.imagePath}}">
+          </div>
+          <div class="title-price">
+            <span class="title" (click)="setCurrentItem(item)">{{item.title | titlecase}}</span>
+            <span class="us_price">{{item.price | currency : 'USD' : 'symbol' : '1.0-0' }}</span>
+          </div>
+          <div class="product-values">
+            <span class="trophies icon-trophy">223</span>
+            <span class="tags icon-pin">{{item.tags}}</span>
+            <span class="rating icon-star">{{item.rating}}</span>
+            <span class="percentage icon-shield">{{item.percentage}}%</span>
+            <span class="epack icon-epack">ePack</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isList()">
+    <div class="between-xs set-width">
+      <div *ngFor="let item of (gridItems$ | async)" class="row row-hover-effect">
+        <div class="box-index">
+          <div class="box-row">{{item.productId}}</div>
+        </div>
+        <div class="box-thumb">
+          <div class="box-row image"><img src="{{item.imagePath}}" alt="Product Image"></div>
+        </div>
+        <div class="box-description col-xs-10 col-sm-6 col-md-8 col-lg-8">
+          <div class="box-row stretch">
+            <div class="col-right col-xs-4 col-sm-3 col-md-5 col-lg-6">
+              <span class="price">{{item.price | currency : 'USD' : 'symbol' : '1.0-0' }}</span>
+              <span class="icon-eye"></span>
+              <span class="icon-heart"></span>
+              <span class="icon-add"></span>
+            </div>
+            <div class="col-left">
+              <span class="title" (click)="setCurrentItem(item)">{{item.title}}</span>
+              <img src="/assets/images/Instagram-Tag.svg" class="ribbon">
+              <span class="badge grey">2 Days Ago</span>
+              <span class="badge purple">Dropship</span>
+              <span class="badge red"><img src="/assets/images/red-cloud.png"></span>
+              <span class="badge yellow seen"><img src="/assets/images/yellow-recycle.png"></span>
+              <span class="badge blue cog"><img src="/assets/images/blue-cog.png"></span>
+              <br/>
+              <div class="product-values">
+                <span class="tags icon-pin">{{item.tags}}</span>
+                <span class="rating icon-star">{{item.rating}}</span>
+                <span class="percentage icon-shield">{{item.percentage}}%</span>
+                <span class="epack icon-epack">ePack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
