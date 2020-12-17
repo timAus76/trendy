@@ -28,8 +28,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/styles/styles.scss"
+              "./src/assets/styles/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src/assets/styles/"
+              ]
+            },
             "scripts": [],
             "customWebpackConfig": {
               "path": "custom-webpack.config.js"
@@ -131,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "grid-list"
+  "defaultProject": "grid-list",
+  "cli": {
+    "analytics": false
+  }
 }
